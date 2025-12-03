@@ -15,6 +15,7 @@ const CTA = () => {
                         <Link to="/contact" className="btn btn-primary">
                             <span>Get in Touch</span>
                             <Mail size={20} />
+                            
                         </Link>
                         <Link to="/projects" className="btn btn-secondary">
                             <span>View Work</span>
