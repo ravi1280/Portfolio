@@ -12,6 +12,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 
+
 import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
