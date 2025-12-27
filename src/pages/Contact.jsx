@@ -25,8 +25,8 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: <Mail size={24} />, label: 'Email', value: 'Ravishkaindrajith9.9@gmail.com' },
-    { icon: <Phone size={24} />, label: 'Phone', value: '+947196818164545454' },
-    { icon: <MapPin size={24} />, label: 'Location', value: 'No: 6/1 , Ginidammana,Banduragoda' },
+    { icon: <Phone size={24} />, label: 'Phone', value: '+94719681816' },
+    { icon: <MapPin size={24} />, label: 'Location', value: 'Gampaha, Sri Lanka' },
   ];
 
   return (
