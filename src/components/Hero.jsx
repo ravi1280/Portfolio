@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Github, Linkedin, ChevronDown, Mail, Download } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Scene3D from './Scene3D';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import RobotModel from './RobotModel';
 import cvFile from '../assets/RavishkaIndrajiCV(200128000873).pdf';
 
 const Hero = () => {
@@ -140,8 +142,15 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
       >
-        <div className="spotlight"></div>
-        <img src="/Avatar.png" alt="Ravishka Indraji" className="hero-avatar" />
+        <div className="spotlight"></div> 
+        <div className="hero-canvas-wrapper">
+          <Canvas camera={{ position: [2.5, 2, 3.5], fov: 45 }}>
+            <ambientLight intensity={0.6} />
+            <directionalLight position={[10, 10, 10]} intensity={2} />
+            <RobotModel scale={[-1, 1, 1]} position={[0, -0.8, 0]} />
+            <OrbitControls enablePan={false} enableZoom={false} autoRotate={false} />
+          </Canvas>
+        </div>
       </motion.div>
 
       <motion.div
@@ -375,20 +384,20 @@ const Hero = () => {
           max-width: 500px;
         }
 
-        .hero-avatar {
+        .hero-canvas-wrapper {
           width: 100%;
-          height: auto;
-          max-height: 600px;
-          object-fit: contain;
+          max-width: 500px;
+          height: 500px;
           position: relative;
           z-index: 2;
           filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
-          mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+          border-radius: 20px;
+          overflow: hidden;
         }
 
         .spotlight {
           position: absolute;
-          bottom: -0%;
+          bottom: 15%;
           left: 50%;
           transform: translateX(-50%);
           width: 150%;
@@ -432,6 +441,10 @@ const Hero = () => {
           .hero-image-container {
             width: 100%;
             max-width: 400px;
+          }
+          .hero-canvas-wrapper {
+            max-width: 400px;
+            height: 400px;
           }
           
           .hero-cta, .social-links {
