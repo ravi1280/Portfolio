@@ -50,10 +50,6 @@ const Navbar = () => {
       <div className="nav-container">
 
 
-        <Link to="/" className="logo">
-          <img src="/logo.png" alt="Logo" style={{ height: '40px', width: 'auto' }} />
-        </Link>
-
         <div className="desktop-links">
           {navLinks.map((link) => (
             <Link
