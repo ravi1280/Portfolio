@@ -142,12 +142,12 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
       >
-        <div className="spotlight"></div> 
+        {/* <div className="spotlight"></div>  */}
         <div className="hero-canvas-wrapper">
-          <Canvas camera={{ position: [2.5, 2, 3.5], fov: 45 }}>
+          <Canvas camera={{ position: [2.5, 2, 3.5], fov: 40 }}>
             <ambientLight intensity={0.6} />
             <directionalLight position={[10, 10, 10]} intensity={2} />
-            <RobotModel scale={[-1, 1, 1]} position={[0, -0.8, 0]} />
+            <RobotModel scale={[-1, 1, 1]} position={[0, -0.8, 0]} rotation={[0, 2, 0]} />
             <OrbitControls enablePan={false} enableZoom={false} autoRotate={false} />
           </Canvas>
         </div>

@@ -58,7 +58,7 @@ export default function RobotModel(props) {
     if (materials.SCREEN) {
       materials.SCREEN.color.set(screen)
       materials.SCREEN.emissive?.set('#DEDEDE')
-      materials.SCREEN.emissiveIntensity = 1.0
+      materials.SCREEN.emissiveIntensity = 0.3
       materials.SCREEN.roughness = 0.4
       materials.SCREEN.metalness = 0.05
   materials.SCREEN.side = THREE.DoubleSide
@@ -68,7 +68,7 @@ export default function RobotModel(props) {
     if (materials.EYES) {
       materials.EYES.color.set('#00F050')
       materials.EYES.emissive?.set('#00F050')
-      materials.EYES.emissiveIntensity = 1.6
+      materials.EYES.emissiveIntensity = 0.2
   materials.EYES.side = THREE.DoubleSide
     }
   }, [materials])
@@ -84,9 +84,10 @@ export default function RobotModel(props) {
       const baseX = props.position?.[0] ?? group.current.position.x
       group.current.position.y = baseY + Math.sin(t * 1.2) * 0.08
       group.current.position.x = baseX + Math.sin(t * 0.6) * 0.04
-      // Oscillate yaw (left-right) around Y axis
-      const yawAmplitude = 0.25 // radians ~14 degrees
-      group.current.rotation.y = Math.sin(t * 0.8) * yawAmplitude
+  // Oscillate yaw (left-right) around Y axis around base rotation
+  const yawAmplitude = 0.25 // radians ~14 degrees
+  const baseYaw = props.rotation?.[1] ?? group.current.rotation.y
+  group.current.rotation.y = baseYaw + Math.sin(t * 0.8) * yawAmplitude
     }
 
     const left = nodes.mesh_2
