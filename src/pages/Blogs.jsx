@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Blogs = () => {
   const blogPosts = [
@@ -83,6 +84,10 @@ const Blogs = () => {
 
   return (
     <section className="blogs-section">
+      <SEO
+        title="Blogs"
+        description="Read my latest thoughts and tutorials on web development, design, and technology."
+      />
       <div className="blogs-container">
         <motion.div
           className="blogs-header"

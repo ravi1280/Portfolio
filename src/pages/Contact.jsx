@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 
 const Contact = () => {
@@ -31,6 +32,10 @@ const Contact = () => {
 
   return (
     <section className="contact-section">
+      <SEO
+        title="Contact"
+        description="Get in touch with Ravishka for collaborations, freelance work, or just to say hi."
+      />
       <div className="contact-container">
         <motion.h1
           className="contact-title"

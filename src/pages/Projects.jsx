@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Folder, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
@@ -64,6 +65,10 @@ const Projects = () => {
 
   return (
     <section className="projects-section">
+      <SEO
+        title="Projects"
+        description="Explore my latest projects, including full-stack applications, frontend demos, and more."
+      />
       <div className="projects-container">
         <motion.h2
           className="section-title"

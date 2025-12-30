@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Database, Globe, Layout, Server, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const About = () => {
   const skills = [
@@ -33,6 +34,10 @@ const About = () => {
 
   return (
     <section className="about-section">
+      <SEO
+        title="About Me"
+        description="Learn more about Ravishka Indraji, a software engineer with 3+ years of experience in frontend and backend."
+      />
       <div className="about-container">
         <div className="about-content">
           <motion.div

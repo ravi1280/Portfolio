@@ -10,10 +10,15 @@ import TechStack from '../components/TechStack';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const Home = () => {
     return (
         <div>
+            <SEO
+                title="Home"
+                description="Welcome to the portfolio of Ravishka Indraji, a Creative Developer building immersive web experiences."
+            />
             <ParticleBackground />
             <Hero />
             <Services />
