@@ -22,10 +22,10 @@ export default function RobotModel(props) {
   React.useEffect(() => {
     if (!materials) return
     // Base greens
-  const primary = '#00F050' // bright green
-  const deep = '#00A030' // deeper green
-  const glow = '#00F050' // brighter glow
-  const screen = '#ffffff' // white screen base
+    const primary = '#00F050' // bright green
+    const deep = '#00A030' // deeper green
+    const glow = '#00F050' // brighter glow
+    const screen = '#ffffff' // white screen base
 
     // BODY: main chassis
     if (materials.BODY) {
@@ -33,7 +33,7 @@ export default function RobotModel(props) {
       materials.BODY.color.set(primary)
       materials.BODY.roughness = 0.28
       materials.BODY.metalness = 0.65
-  materials.BODY.side = THREE.DoubleSide
+      materials.BODY.side = THREE.DoubleSide
     }
 
     // Material.001: accents/panels
@@ -41,7 +41,7 @@ export default function RobotModel(props) {
       materials['Material.001'].color.set(primary)
       materials['Material.001'].roughness = 0.4
       materials['Material.001'].metalness = 0.4
-  materials['Material.001'].side = THREE.DoubleSide
+      materials['Material.001'].side = THREE.DoubleSide
     }
 
     // GLOW: emissive lines
@@ -51,7 +51,7 @@ export default function RobotModel(props) {
       materials.GLOW.emissiveIntensity = 1.8
       materials.GLOW.roughness = 0.15
       materials.GLOW.metalness = 0.1
-  materials.GLOW.side = THREE.DoubleSide
+      materials.GLOW.side = THREE.DoubleSide
     }
 
     // SCREEN: face/screen tint
@@ -61,7 +61,7 @@ export default function RobotModel(props) {
       materials.SCREEN.emissiveIntensity = 0.3
       materials.SCREEN.roughness = 0.4
       materials.SCREEN.metalness = 0.05
-  materials.SCREEN.side = THREE.DoubleSide
+      materials.SCREEN.side = THREE.DoubleSide
     }
 
     // EYES: make eyes a bright emissive green
@@ -69,7 +69,7 @@ export default function RobotModel(props) {
       materials.EYES.color.set('#00F050')
       materials.EYES.emissive?.set('#00F050')
       materials.EYES.emissiveIntensity = 0.2
-  materials.EYES.side = THREE.DoubleSide
+      materials.EYES.side = THREE.DoubleSide
     }
   }, [materials])
 
@@ -84,10 +84,10 @@ export default function RobotModel(props) {
       const baseX = props.position?.[0] ?? group.current.position.x
       group.current.position.y = baseY + Math.sin(t * 1.2) * 0.08
       group.current.position.x = baseX + Math.sin(t * 0.6) * 0.04
-  // Oscillate yaw (left-right) around Y axis around base rotation
-  const yawAmplitude = 0.25 // radians ~14 degrees
-  const baseYaw = props.rotation?.[1] ?? group.current.rotation.y
-  group.current.rotation.y = baseYaw + Math.sin(t * 0.8) * yawAmplitude
+      // Oscillate yaw (left-right) around Y axis around base rotation
+      const yawAmplitude = 0.25 // radians ~14 degrees
+      const baseYaw = props.rotation?.[1] ?? group.current.rotation.y
+      group.current.rotation.y = baseYaw + Math.sin(t * 0.8) * yawAmplitude
     }
 
     const left = nodes.mesh_2
@@ -96,8 +96,8 @@ export default function RobotModel(props) {
 
     const state = blinkRef.current
     state.t += delta
-  // Blink every ~2 seconds; when triggered, do a double blink
-  const blinkInterval = 2
+    // Blink every ~2 seconds; when triggered, do a double blink
+    const blinkInterval = 2
     const closeSpeed = 8
     const openSpeed = 6
     const pauseBetweenBlinks = 0.12 // short pause between blinks
