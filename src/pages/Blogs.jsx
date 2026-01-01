@@ -1,65 +1,67 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Tag, ArrowRight, Loader } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Blogs = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'The Future of Web Development: What to Expect in 2025',
-      excerpt: 'Exploring the latest trends in frontend frameworks, AI integration, and the shift towards edge computing.',
-      date: 'Nov 15, 2024',
-      readTime: '5 min read',
-      tags: ['Web Dev', 'Trends', 'AI'],
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      id: 2,
-      title: 'Mastering React Hooks: A Comprehensive Guide',
-      excerpt: 'Deep dive into useEffect, useMemo, and useCallback. Learn how to optimize your React applications for better performance.',
-      date: 'Oct 28, 2024',
-      readTime: '8 min read',
-      tags: ['React', 'Hooks', 'Performance'],
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      id: 3,
-      title: 'Building Scalable APIs with Node.js and GraphQL',
-      excerpt: 'Best practices for designing robust APIs. Comparing REST vs GraphQL and when to use which.',
-      date: 'Oct 10, 2024',
-      readTime: '6 min read',
-      tags: ['Backend', 'Node.js', 'GraphQL'],
-      image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      id: 4,
-      title: 'CSS Grid vs Flexbox: The Ultimate Showdown',
-      excerpt: 'Understanding the key differences and use cases for modern CSS layout techniques. Create complex layouts with ease.',
-      date: 'Sep 22, 2024',
-      readTime: '4 min read',
-      tags: ['CSS', 'Design', 'Frontend'],
-      image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      id: 5,
-      title: 'DevOps for Frontend Developers: CI/CD Pipelines',
-      excerpt: 'A beginner-friendly guide to setting up automated testing and deployment workflows using GitHub Actions.',
-      date: 'Sep 05, 2024',
-      readTime: '7 min read',
-      tags: ['DevOps', 'CI/CD', 'GitHub'],
-      image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      id: 6,
-      title: 'Accessibility in Modern Web Apps',
-      excerpt: 'Why accessibility matters and how to implement WCAG guidelines to make your applications usable for everyone.',
-      date: 'Aug 18, 2024',
-      readTime: '5 min read',
-      tags: ['Accessibility', 'UX', 'Web'],
-      image: 'https://images.unsplash.com/photo-1586717791821-3f44a5638d0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    }
-  ];
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(
+          'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ravishkaindrajith9.9'
+        );
+        const data = await response.json();
+
+        if (data.status === 'ok') {
+          const formattedPosts = data.items.map((item, index) => {
+            // Create a temporary element to strip HTML from description
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = item.description;
+            const plainText = tempDiv.textContent || tempDiv.innerText || '';
+            const excerpt = plainText.substring(0, 150) + '...';
+
+            // Extract first image from content if thumbnail is missing
+            let image = item.thumbnail;
+            if (!image) {
+              const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
+              if (imgMatch) {
+                image = imgMatch[1];
+              }
+            }
+
+            return {
+              id: index,
+              title: item.title,
+              excerpt: excerpt,
+              date: new Date(item.pubDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              }),
+              readTime: '5 min read', // Medium RSS doesn't provide read time, defaulting
+              tags: item.categories,
+              image: image || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+              link: item.link
+            };
+          });
+          setPosts(formattedPosts);
+        } else {
+          setError('Failed to fetch blogs');
+        }
+      } catch (err) {
+        setError('Error loading blogs');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,44 +98,55 @@ const Blogs = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="section-title">Latest Insights</h1>
-          <p className="section-subtitle">Thoughts, tutorials, and tech trends.</p>
+          <p className="section-subtitle">Thoughts, tutorials, and tech trends from Medium.</p>
         </motion.div>
 
-        <motion.div
-          className="blogs-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {blogPosts.map((post) => (
-            <motion.article
-              key={post.id}
-              className="blog-card"
-              variants={itemVariants}
-              whileHover={{ y: -10, borderColor: 'var(--primary-color)' }}
-            >
-              <div className="blog-image">
-                <img src={post.image} alt={post.title} />
-                <div className="blog-overlay">
-                  <span className="read-btn">Read Article <ArrowRight size={16} /></span>
+        {loading ? (
+          <div className="loading-container">
+            <Loader className="spinner" size={40} />
+          </div>
+        ) : error ? (
+          <div className="error-container">
+            <p>{error}</p>
+          </div>
+        ) : (
+          <motion.div
+            className="blogs-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {posts.map((post) => (
+              <motion.article
+                key={post.id}
+                className="blog-card"
+                variants={itemVariants}
+                whileHover={{ y: -10, borderColor: 'var(--primary-color)' }}
+                onClick={() => window.open(post.link, '_blank')}
+              >
+                <div className="blog-image">
+                  <img src={post.image} alt={post.title} />
+                  <div className="blog-overlay">
+                    <span className="read-btn">Read Article <ArrowRight size={16} /></span>
+                  </div>
                 </div>
-              </div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span className="blog-date"><Calendar size={14} /> {post.date}</span>
-                  <span className="blog-time"><Clock size={14} /> {post.readTime}</span>
+                <div className="blog-content">
+                  <div className="blog-meta">
+                    <span className="blog-date"><Calendar size={14} /> {post.date}</span>
+                    {/* <span className="blog-time"><Clock size={14} /> {post.readTime}</span> */}
+                  </div>
+                  <h2 className="blog-title">{post.title}</h2>
+                  <p className="blog-excerpt">{post.excerpt}</p>
+                  <div className="blog-tags">
+                    {post.tags.slice(0, 3).map((tag, index) => (
+                      <span key={index} className="blog-tag">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-                <h2 className="blog-title">{post.title}</h2>
-                <p className="blog-excerpt">{post.excerpt}</p>
-                <div className="blog-tags">
-                  {post.tags.map((tag, index) => (
-                    <span key={index} className="blog-tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+              </motion.article>
+            ))}
+          </motion.div>
+        )}
       </div>
 
       <style>{`
@@ -164,6 +177,24 @@ const Blogs = () => {
         .section-subtitle {
           color: var(--text-secondary);
           font-size: 1.2rem;
+        }
+
+        .loading-container, .error-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 200px;
+          color: var(--text-secondary);
+        }
+
+        .spinner {
+          animation: spin 1s linear infinite;
+          color: var(--primary-color);
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         .blogs-grid {

@@ -8,56 +8,72 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with cart functionality, payment processing, and user authentication.',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      links: { demo: '#', github: '#' },
+      title: 'EZpark - IoT Parking System',
+      description: 'Smart IoT-based parking system using ESP32 and sensors to automate space detection and user access via RFID, with real-time monitoring through a Java backend and React Native app.',
+      tags: ['Java', 'C++ (Arduino)', 'React Native', 'ESP-32', 'IoT'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/EZpark-IoT' },
+      category: 'IoT',
+      image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'Skill-Ladder (M-Commerce)',
+      description: 'Android m-commerce app connecting job seekers to skill-based lessons with job listings, payments, progress tracking, and admin management.',
+      tags: ['Java', 'MySQL', 'Firebase', 'Google Maps API'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Skill-Ladder' },
+      category: 'Mobile',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'Mobile Chat Application',
+      description: 'React Native-based mobile messaging system enabling real-time text communication between users with a modern interface and efficient message delivery.',
+      tags: ['React Native', 'Java', 'MySQL'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Chat-Application' },
+      category: 'Mobile',
+      image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'Clothing E-Commerce',
+      description: 'Full-featured e-commerce website with user authentication, product management, shopping cart, admin panel, email notifications, and analytics.',
+      tags: ['PHP', 'MySQL', 'HTML/CSS', 'Bootstrap', 'PayHere'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/html-ecommerce-project' },
       category: 'Full Stack',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
     },
     {
-      title: 'Task Management App',
-      description: 'A productivity tool for teams to organize tasks, track progress, and collaborate in real-time.',
-      tags: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-      links: { demo: '#', github: '#' },
+      title: 'Disaster Management System',
+      description: 'Web-based disaster management platform featuring interactive maps for tracking and managing emergency incidents.',
+      tags: ['React', 'Tailwind CSS', 'LeafletJS'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Disaster-Management' },
       category: 'Frontend',
-      image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Real-time weather application providing detailed forecasts and interactive maps using external APIs.',
-      tags: ['React', 'OpenWeatherMap API', 'Chart.js'],
-      links: { demo: '#', github: '#' },
+      title: 'Eventra - Event Management',
+      description: 'Event management solution with map integration for venue location and event planning capabilities.',
+      tags: ['React', 'LeafletJS'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Eventra' },
       category: 'Frontend',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
     },
     {
-      title: 'Finance Tracker',
-      description: 'Personal finance application for tracking income, expenses, and visualizing spending habits.',
-      tags: ['Next.js', 'PostgreSQL', 'Prisma'],
-      links: { demo: '#', github: '#' },
-      category: 'Full Stack',
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      title: 'Gemini AI Chatbot',
+      description: 'Intelligent chatbot application powered by Google\'s Gemini API, featuring a React frontend and Spring Boot backend.',
+      tags: ['Gemini API', 'React', 'Spring Boot'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Gemini-ChatBot' },
+      category: 'AI',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
     },
     {
-      title: 'Portfolio Website',
-      description: 'Modern, responsive portfolio website showcasing projects and skills with smooth animations.',
-      tags: ['React', 'GSAP', 'Vite'],
-      links: { demo: '#', github: '#' },
-      category: 'Frontend',
-      image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      title: 'Chat Application',
-      description: 'Real-time messaging app with features like group chats, file sharing, and online status indicators.',
-      tags: ['Socket.io', 'Express', 'React'],
-      links: { demo: '#', github: '#' },
-      category: 'Backend',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      title: 'Text Summarizer AI Extension',
+      description: 'Browser extension for automatically summarizing web content using AI, built with Spring Boot and vanilla web technologies.',
+      tags: ['Spring Boot', 'HTML/CSS', 'JavaScript'],
+      links: { demo: '#', github: 'https://github.com/ravi1280/Text-Summarize-AI-Extension' },
+      category: 'AI',
+      image: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
     }
   ];
 
-  const categories = ['All', 'Frontend', 'Backend', 'Full Stack'];
+  const categories = ['All', 'Full Stack', 'Mobile', 'IoT', 'AI', 'Frontend'];
 
   const filteredProjects = filter === 'All'
     ? projects

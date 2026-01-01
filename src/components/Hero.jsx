@@ -112,7 +112,7 @@ const Hero = () => {
           <a href="/projects" className="primary-btn">
             View My Work <ArrowRight size={20} />
           </a>
-          
+
           <a href={cvFile} download="RavishkaIndraji_CV.pdf" className="secondary-btn">
             Download CV <Download size={20} />
           </a>
@@ -147,7 +147,7 @@ const Hero = () => {
           <Canvas camera={{ position: [2.5, 2, 3.5], fov: 40 }}>
             <ambientLight intensity={0.6} />
             <directionalLight position={[10, 10, 10]} intensity={2} />
-            <RobotModel scale={[-1, 1, 1]} position={[0, -0.8, 0]} rotation={[0, 2, 0]} />
+            <RobotModel scale={[-1, 1, 1]} position={[0, -0.8, 0]} rotation={[0, 1.8, 0]} />
             <OrbitControls enablePan={false} enableZoom={false} autoRotate={false} />
           </Canvas>
         </div>

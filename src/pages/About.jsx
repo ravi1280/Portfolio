@@ -4,39 +4,11 @@ import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
 const About = () => {
-  const skills = [
-    { name: 'Frontend', icon: <Layout size={20} />, items: ['React', 'Vue', 'Next.js', 'Tailwind CSS'] },
-    { name: 'Backend', icon: <Server size={20} />, items: ['Node.js', 'Python', 'Go', 'PostgreSQL'] },
-    { name: 'DevOps', icon: <Terminal size={20} />, items: ['Docker', 'AWS', 'CI/CD', 'Linux'] },
-    { name: 'Tools', icon: <Database size={20} />, items: ['Git', 'Figma', 'VS Code', 'Postman'] }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <section className="about-section">
       <SEO
         title="About Me"
-        description="Learn more about Ravishka Indraji, a software engineer with 3+ years of experience in frontend and backend."
+        description="Learn more about Ravishka Indraji, a Software Engineer with 3+ years of experience in Frontend and Backend development."
       />
       <div className="about-container">
         <div className="about-content">
@@ -55,62 +27,52 @@ const About = () => {
               Today, I focus on building accessible, inclusive products and digital experiences for a variety of clients. I enjoy bridging the gap between engineering and design — combining my technical knowledge with my keen eye for design to create a beautiful product.
             </p>
             <div className="experience-badge">
-              <span className="years">5+</span>
+              <span className="years">3+</span>
               <span className="label">Years of<br />Experience</span>
             </div>
           </motion.div>
 
           <motion.div
-            className="skills-grid"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            className="about-image-container"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            {skills.map((category, index) => (
-              <motion.div
-                key={index}
-                className="skill-card"
-                variants={itemVariants}
-                whileHover={{ y: -5, borderColor: 'var(--primary-color)' }}
-              >
-                <div className="skill-header">
-                  <span className="skill-icon">{category.icon}</span>
-                  <h3>{category.name}</h3>
-                </div>
-                <div className="skill-tags">
-                  {category.items.map((item, i) => (
-                    <span key={i} className="skill-tag">{item}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            <div className="image-wrapper">
+              <img src="/Avatar.png" alt="Ravishka Indraji" className="profile-image" />
+              <div className="image-border"></div>
+            </div>
           </motion.div>
         </div>
       </div>
 
       <style>{`
         .about-section {
-          padding: 6rem 2rem;
+          padding: 8rem 2rem;
           background: var(--bg-color);
           position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
         }
 
         .about-container {
           max-width: 1200px;
           margin: 0 auto;
+          width: 100%;
         }
 
         .about-content {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 6rem;
           align-items: center;
         }
 
         .section-title {
-          font-size: clamp(2rem, 4vw, 3rem);
-          margin-bottom: 1.5rem;
+          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          margin-bottom: 2rem;
           background: var(--accent-gradient);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -131,11 +93,11 @@ const About = () => {
           background: var(--surface-color);
           border-radius: var(--radius-md);
           border: 1px solid rgba(255, 255, 255, 0.05);
-          margin-top: 1rem;
+          margin-top: 2rem;
         }
 
         .years {
-          font-size: 2.5rem;
+          font-size: 3rem;
           font-weight: 700;
           color: var(--primary-color);
           line-height: 1;
@@ -145,62 +107,80 @@ const About = () => {
           font-size: 0.9rem;
           color: var(--text-secondary);
           line-height: 1.2;
+          text-align: left;
         }
 
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
-
-        .skill-card {
-          background: var(--surface-color);
-          padding: 1.5rem;
-          border-radius: var(--radius-md);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          transition: all 0.3s ease;
-        }
-
-        .skill-header {
+        .about-image-container {
+          position: relative;
           display: flex;
+          justify-content: center;
           align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 1rem;
         }
 
-        .skill-icon {
-          color: var(--primary-color);
+        .image-wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 400px;
+          aspect-ratio: 1;
         }
 
-        .skill-card h3 {
-          font-size: 1.1rem;
-          color: var(--text-primary);
-        }
-
-        .skill-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-
-        .skill-tag {
-          font-size: 0.85rem;
-          color: var(--text-secondary);
-          background: rgba(255, 255, 255, 0.05);
-          padding: 0.25rem 0.75rem;
+        .profile-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           border-radius: 20px;
+          position: relative;
+          z-index: 2;
+          filter: grayscale(20%);
+          transition: all 0.5s ease;
+        }
+
+        .image-wrapper:hover .profile-image {
+          filter: grayscale(0%);
+          transform: translateY(-10px);
+        }
+
+        .image-border {
+          position: absolute;
+          top: 20px;
+          right: -20px;
+          bottom: -20px;
+          left: 20px;
+          border: 2px solid var(--primary-color);
+          border-radius: 20px;
+          z-index: 1;
+          transition: all 0.5s ease;
+        }
+
+        .image-wrapper:hover .image-border {
+          top: 10px;
+          right: -10px;
+          bottom: -10px;
+          left: 10px;
         }
 
         @media (max-width: 968px) {
           .about-content {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 4rem;
+            text-align: center;
           }
-        }
 
-        @media (max-width: 480px) {
-          .skills-grid {
-            grid-template-columns: 1fr;
+          .about-text {
+            order: 2;
+          }
+
+          .about-image-container {
+            order: 1;
+            margin-bottom: 2rem;
+          }
+
+          .experience-badge {
+            margin: 2rem auto 0;
+          }
+          
+          .label {
+            text-align: left;
           }
         }
       `}</style>

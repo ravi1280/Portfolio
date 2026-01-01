@@ -5,34 +5,34 @@ import GlareCard from './GlareCard';
 
 const Experience = () => {
   const experiences = [
-  
+
     {
       role: 'B.Sc. (Hons) in Software Engineering',
       company: 'Birmingham City University',
-      period: '2021 - 2025',
-      description: 'Focused on full-stack development, computer graphics, and cloud computing. Final year project: Interactive 3D portfolio using WebGL and React.',
-      skills: ['React', 'Three.js', 'Node.js', 'Cloud']
+      period: '2024 - Present',
+      description: 'Developing expertise in Android and Unity game engines, supported by a strong foundation in Data Structures, Algorithms, and Design Patterns. The curriculum also integrates Business Components and Cyber Law for comprehensive industry readiness.',
+      skills: ['Android', 'Unity', 'DSA', 'Design Patterns']
     },
     {
       role: 'Higher Diploma in Software Engineering',
       company: 'UK Awards',
-      period: '2025',
-      description: 'Advanced coursework and capstone in scalable systems, DevOps, and modern frontend architectures.',
-      skills: ['DevOps', 'React', 'Node.js', 'Systems Design']
+      period: '2023-2024',
+      description: 'Deepened engineering expertise through Object-Oriented Programming (OOP) and Software Quality Assurance, while mastering Project Management methodologies and Electronics for Software Engineering.',
+      skills: ['OOP', 'Project Management', 'Quality Assurance', 'Electronics']
     },
-      {
+    {
       role: 'Diploma in Software Engineering',
       company: 'UK Awards',
-      period: '2019 - 2021',
-      description: 'Core foundations in software engineering: programming, databases, and web development with hands-on projects.',
-      skills: ['JavaScript', 'Python', 'SQL', 'HTML/CSS']
+      period: '2022 - 2023',
+      description: 'Built a solid technical foundation through comprehensive study of Database Management Systems, Computer Hardware & Networking, and Web Programming, complemented by Mathematics for Computer Science.',
+      skills: ['DBMS', 'Networking', 'Web Programming', 'Mathematics']
     },
     {
       role: 'Secondary Education',
       company: 'Bandaranayake Central College (Veyangoda)',
-      period: '2013 - 2018',
-      description: 'Completed secondary school with emphasis on mathematics and computing clubs.',
-      skills: ['Math', 'Problem Solving', 'Teamwork']
+      period: '2018 - 2020',
+      description: 'Completed GCE Advanced Level in the Physical Science stream, building a strong analytical foundation in Combined Mathematics, Physics, and Chemistry.',
+      skills: ['Combined Math', 'Physics', 'Chemistry', 'Problem Solving']
     }
   ];
 
