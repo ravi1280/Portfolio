@@ -5,26 +5,34 @@ import GlareCard from './GlareCard';
 
 const Experience = () => {
   const experiences = [
+  
     {
-      role: 'Senior Software Engineer',
-      company: 'Tech Solutions Inc.',
-      period: '2021 - Present',
-      description: 'Leading a team of developers in building scalable web applications. Implemented CI/CD pipelines and improved system performance by 40%.',
-      skills: ['React', 'Node.js', 'AWS', 'Docker']
+      role: 'B.Sc. (Hons) in Software Engineering',
+      company: 'Birmingham City University',
+      period: '2021 - 2025',
+      description: 'Focused on full-stack development, computer graphics, and cloud computing. Final year project: Interactive 3D portfolio using WebGL and React.',
+      skills: ['React', 'Three.js', 'Node.js', 'Cloud']
     },
     {
-      role: 'Full Stack Developer',
-      company: 'Digital Innovations',
+      role: 'Higher Diploma in Software Engineering',
+      company: 'UK Awards',
+      period: '2025',
+      description: 'Advanced coursework and capstone in scalable systems, DevOps, and modern frontend architectures.',
+      skills: ['DevOps', 'React', 'Node.js', 'Systems Design']
+    },
+      {
+      role: 'Diploma in Software Engineering',
+      company: 'UK Awards',
       period: '2019 - 2021',
-      description: 'Developed and maintained multiple client projects. Collaborated with designers to implement pixel-perfect user interfaces.',
-      skills: ['Vue.js', 'Python', 'PostgreSQL', 'Redis']
+      description: 'Core foundations in software engineering: programming, databases, and web development with hands-on projects.',
+      skills: ['JavaScript', 'Python', 'SQL', 'HTML/CSS']
     },
     {
-      role: 'Frontend Developer',
-      company: 'Creative Agency',
-      period: '2018 - 2019',
-      description: 'Built responsive websites and landing pages for various clients. Optimized frontend performance and accessibility.',
-      skills: ['JavaScript', 'HTML/CSS', 'GSAP', 'Bootstrap']
+      role: 'Secondary Education',
+      company: 'Bandaranayake Central College (Veyangoda)',
+      period: '2013 - 2018',
+      description: 'Completed secondary school with emphasis on mathematics and computing clubs.',
+      skills: ['Math', 'Problem Solving', 'Teamwork']
     }
   ];
 
@@ -38,7 +46,7 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Work Experience
+          Education
         </motion.h2>
 
         <div className="timeline">

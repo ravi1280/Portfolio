@@ -57,7 +57,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>Ravishkaindrajith9.9@gmail.com</li>
               <li>+94719681816</li>
-              <li>No: 6/1 , Ginidammana,Banduragoda</li>
+              <li>Gampaha, Sri Lanka</li>
             </ul>
           </div>
         </div>

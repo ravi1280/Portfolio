@@ -9,39 +9,39 @@ const Services = () => {
   const services = [
     {
       icon: <Monitor size={48} />,
-      title: 'Frontend Development',
-      description: 'Crafting responsive, pixel-perfect user interfaces with React, Vue, and modern CSS frameworks.',
+      title: 'Web Application Development',
+      description: 'Modern, responsive web applications built with clean UI, optimized performance, and scalable architecture.',
       size: 'large'
     },
     {
       icon: <Database size={40} />,
-      title: 'Backend Development',
-      description: 'Building robust, scalable server-side applications and APIs using Node.js, Python, and Go.',
+      title: 'Mobile App Development (Android)',
+      description: 'Building robust, scalable mobile applications for Android using Kotlin and Java.',
       size: 'medium'
     },
     {
       icon: <Cloud size={48} />,
-      title: 'Cloud Solutions',
-      description: 'Deploying and managing secure cloud infrastructure on AWS, Azure, and Google Cloud Platform.',
+      title: 'Backend & API Development',
+      description: 'Secure and scalable backend systems with REST APIs that power web and mobile applications.',
       size: 'medium'
     },
 
     {
       icon: <Palette size={40} />,
-      title: 'UI/UX Design',
-      description: 'Designing intuitive and accessible user experiences with a focus on user-centered design principles.',
+      title: 'Database Design & System Architecture',
+      description: 'Efficient database schemas and system designs that support scalability, performance, and long-term maintainability.',
       size: 'medium'
     },
     {
       icon: <Smartphone size={40} />,
-      title: 'Mobile App Dev',
-      description: 'Developing cross-platform mobile applications for iOS and Android using React Native.',
+      title: 'Authentication & Security Implementation',
+      description: 'Secure login systems using JWT, role-based access control, and best security practices.',
       size: 'large'
     },
     {
       icon: <Rocket size={40} />,
-      title: 'Performance Tuning',
-      description: 'Optimizing web applications for maximum speed, accessibility, and search engine visibility.',
+      title: 'Desktop POS System Development',
+      description: 'Building desktop applications for point-of-sale systems with a focus on usability and performance.',
       size: 'medium'
     }
   ];
