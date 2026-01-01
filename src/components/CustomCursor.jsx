@@ -131,8 +131,8 @@ const CustomCursor = () => {
 
         /* Cursor dot */
         .cursor-dot {
-          width: 8px;
-          height: 8px;
+          width: 10px;
+          height: 10px;
           background: var(--primary-color);
           border-radius: 50%;
           position: fixed;
@@ -144,14 +144,14 @@ const CustomCursor = () => {
         }
 
         .cursor-dot.cursor-pointer {
-          width: 4px;
-          height: 4px;
+          width: 5px;
+          height: 5px;
         }
 
         /* Cursor outline */
         .cursor-outline {
-          width: 40px;
-          height: 40px;
+          width: 60px;
+          height: 60px;
           border: 2px solid var(--primary-color);
           opacity: 0.5;
           border-radius: 50%;
@@ -163,8 +163,8 @@ const CustomCursor = () => {
         }
 
         .cursor-outline.cursor-pointer {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
           opacity: 0.8;
           border-color: var(--primary-color);
         }
