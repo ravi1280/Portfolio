@@ -124,7 +124,7 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
         >
-          <a href="mailto:ravishkaindrajith9.9@gmail.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://github.com/ravi1280" target="_blank" rel="noopener noreferrer" className="social-icon">
             <Github size={24} />
           </a>
           <a href="https://www.linkedin.com/in/ravishka-ranaweera-b56810321/" target="_blank" rel="noopener noreferrer" className="social-icon">
