@@ -84,7 +84,7 @@ const Hero = () => {
             Ravishka Indraji
           </motion.span>
           <motion.span
-            className="block gradient-text"
+            className="block gradient-text typed-text-wrapper"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
@@ -438,6 +438,11 @@ const Hero = () => {
              font-size: 3rem;
           }
 
+          .typed-text-wrapper {
+            min-height: 2.5em;
+            display: inline-block;
+          }
+
           .hero-image-container {
             width: 100%;
             max-width: 400px;
@@ -476,6 +481,10 @@ const Hero = () => {
           }
 
           .scroll-indicator {
+            display: none;
+          }
+
+          .hero-image-container {
             display: none;
           }
         }
